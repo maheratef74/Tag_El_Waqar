@@ -63,7 +63,7 @@ if (form) {
         // Show Loading
         Swal.fire({
             title: 'جارٍ التسجيل...',
-            text: 'يتم رفع ملفاتك الآن إلى السحابة، يرجى الانتظار',
+            text: 'يتم رفع ملفاتك الآن، يرجى الانتظار',
             allowOutsideClick: false,
             didOpen: () => {
                 Swal.showLoading();
@@ -112,7 +112,7 @@ if (form) {
             // Success
             Swal.fire({
                 title: 'تم التسجيل بنجاح!',
-                text: 'بارك الله فيك، انتظر منا اتصالاً قريباً.',
+                text: 'بالتوفيق',
                 icon: 'success',
                 confirmButtonText: 'حسناً'
             }).then(() => {
