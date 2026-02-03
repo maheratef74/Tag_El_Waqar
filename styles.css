@@ -1,0 +1,312 @@
+ :root {
+     --primary: #004d40;
+     --secondary: #00695c;
+     --gold: #D4AF37;
+     --gold-light: #F4E29F;
+     --cream: #F5F5F5;
+     --glass: rgba(255, 255, 255, 0.05);
+     --glass-border: rgba(212, 175, 55, 0.3);
+     --text-main: #FFFFFF;
+     --text-dark: #1a1a1a;
+ }
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     font-family: 'Cairo', sans-serif;
+     -webkit-tap-highlight-color: transparent;
+ }
+
+ body {
+     background-color: #00251a;
+     color: var(--text-main);
+     overflow-x: hidden;
+     background-image:
+         radial-gradient(circle at 50% 50%, rgba(0, 77, 64, 0.8) 0%, rgba(0, 37, 26, 1) 100%),
+         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ }
+
+ /* Utilities */
+ .container {
+     width: 100%;
+     max-width: 600px;
+     /* Mobile-first constraint */
+     margin: 0 auto;
+     padding: 0 1.5rem;
+ }
+
+ .section-title {
+     text-align: center;
+     font-size: 2rem;
+     color: var(--gold);
+     margin-bottom: 2rem;
+     position: relative;
+     display: inline-block;
+     width: 100%;
+     text-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+ }
+
+ .glass-panel {
+     background: var(--glass);
+     backdrop-filter: blur(12px);
+     -webkit-backdrop-filter: blur(12px);
+     border: 1px solid var(--glass-border);
+     border-radius: 20px;
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+ }
+
+ .btn-gold {
+     background: linear-gradient(45deg, var(--gold), #F7D45C);
+     color: #00251a;
+     padding: 1rem 3rem;
+     border-radius: 50px;
+     font-weight: 700;
+     font-size: 1.2rem;
+     border: none;
+     cursor: pointer;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+     display: block;
+     width: 100%;
+     text-align: center;
+     text-decoration: none;
+ }
+
+ .btn-gold:active {
+     transform: scale(0.95);
+ }
+
+ /* Hero Section */
+ .hero {
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     position: relative;
+     flex-direction: column;
+     padding: 2rem 1rem;
+ }
+
+ .hero-logo {
+     font-size: 3.5rem;
+     font-weight: 800;
+     background: linear-gradient(180deg, var(--gold), var(--gold-light));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     margin-bottom: 0.5rem;
+     filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+ }
+
+ .sub-hero {
+     font-size: 1.5rem;
+     color: var(--cream);
+     margin-bottom: 3rem;
+     opacity: 0.9;
+ }
+
+ @media (max-width: 768px) {
+     .hero-logo {
+         font-size: 2.5rem;
+         line-height: 1.2;
+     }
+
+     .sub-hero {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+     }
+
+     .btn-gold {
+         padding: 0.8rem 2rem;
+         font-size: 1rem;
+         width: 90%;
+         max-width: 300px;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .hero-logo {
+         font-size: 2rem;
+     }
+ }
+
+ .pulse-btn {
+     animation: pulse-gold 2s infinite;
+ }
+
+ @keyframes pulse-gold {
+     0% {
+         box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+     }
+
+     70% {
+         box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+     }
+
+     100% {
+         box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+     }
+ }
+
+ /* Competition Levels */
+ .levels-section {
+     padding: 4rem 0;
+ }
+
+ .level-card {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.5rem;
+     margin-bottom: 1rem;
+     transition: transform 0.3s ease;
+ }
+
+ .level-card:hover {
+     transform: translateX(-5px);
+     background: rgba(255, 255, 255, 0.1);
+ }
+
+ .level-age {
+     font-size: 0.9rem;
+     color: var(--gold);
+     background: rgba(0, 0, 0, 0.3);
+     padding: 0.3rem 0.8rem;
+     border-radius: 10px;
+ }
+
+ .level-name {
+     font-size: 1.2rem;
+     font-weight: 700;
+ }
+
+ /* Prizes */
+ .prizes-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 1rem;
+     padding: 4rem 0;
+ }
+
+ .prize-item {
+     text-align: center;
+     padding: 2rem 1rem;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1rem;
+ }
+
+ .prize-icon {
+     font-size: 2.5rem;
+     color: var(--gold);
+     margin-bottom: 0.5rem;
+ }
+
+ .prize-img {
+     width: 100px;
+     height: 100px;
+     object-fit: contain;
+     margin-bottom: 1rem;
+     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+ }
+
+ /* Info Section */
+ .info-card {
+     padding: 2rem;
+     margin: 4rem 0;
+     line-height: 1.8;
+     font-size: 1.1rem;
+ }
+
+ .info-item {
+     display: flex;
+     align-items: flex-start;
+     gap: 1rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .info-item i {
+     color: var(--gold);
+     margin-top: 5px;
+ }
+
+ /* Form */
+ .form-section {
+     padding-bottom: 4rem;
+ }
+
+ .form-wrapper {
+     padding: 2rem 1.5rem;
+ }
+
+ .form-group {
+     margin-bottom: 1.5rem;
+ }
+
+ .form-label {
+     display: block;
+     margin-bottom: 0.5rem;
+     color: var(--gold);
+     font-weight: 600;
+ }
+
+ .form-input {
+     width: 100%;
+     padding: 1rem;
+     background: rgba(0, 0, 0, 0.3);
+     border: 1px solid var(--primary);
+     border-radius: 12px;
+     color: white;
+     font-size: 1rem;
+     transition: border-color 0.3s;
+ }
+
+ .form-input:focus {
+     outline: none;
+     border-color: var(--gold);
+ }
+
+ .file-upload {
+     position: relative;
+     background: rgba(0, 0, 0, 0.3);
+     border: 2px dashed var(--primary);
+     border-radius: 12px;
+     padding: 2rem;
+     text-align: center;
+     cursor: pointer;
+     transition: all 0.3s;
+ }
+
+ .file-upload:hover {
+     border-color: var(--gold);
+     background: rgba(0, 0, 0, 0.5);
+ }
+
+ .file-upload input {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     opacity: 0;
+     cursor: pointer;
+ }
+
+ /* SweetAlert Override */
+ div:where(.swal2-container) div:where(.swal2-popup) {
+     background: #00251a !important;
+     border: 1px solid var(--gold) !important;
+     color: #fff !important;
+ }
+
+ div:where(.swal2-icon) {
+     border-color: var(--gold) !important;
+     color: var(--gold) !important;
+ }
+
+ .swal2-confirm {
+     background-color: var(--gold) !important;
+     color: #00251a !important;
+ }
