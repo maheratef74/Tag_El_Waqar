@@ -1,13 +1,14 @@
  :root {
      --primary: #004d40;
      --secondary: #00695c;
-     --gold: #D4AF37;
-     --gold-light: #F4E29F;
-     --cream: #F5F5F5;
-     --glass: rgba(255, 255, 255, 0.05);
-     --glass-border: rgba(212, 175, 55, 0.3);
-     --text-main: #FFFFFF;
-     --text-dark: #1a1a1a;
+     --gold: #b38f00;
+     /* Darker gold for better contrast on light */
+     --gold-light: #D4AF37;
+     --cream: #f8f9fa;
+     --glass: rgba(255, 255, 255, 0.95);
+     --glass-border: rgba(179, 143, 0, 0.3);
+     --text-main: #1a1a1a;
+     --text-dark: #000000;
  }
 
  * {
@@ -19,12 +20,12 @@
  }
 
  body {
-     background-color: #00251a;
+     background-color: #f4f6f8;
      color: var(--text-main);
      overflow-x: hidden;
      background-image:
-         radial-gradient(circle at 50% 50%, rgba(0, 77, 64, 0.8) 0%, rgba(0, 37, 26, 1) 100%),
-         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+         radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 242, 245, 1) 100%),
+         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b38f00' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
  }
 
  /* Utilities */
@@ -53,7 +54,7 @@
      -webkit-backdrop-filter: blur(12px);
      border: 1px solid var(--glass-border);
      border-radius: 20px;
-     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+     box-shadow: 0 8px 32px 0 rgba(0, 77, 64, 0.1);
  }
 
  .btn-gold {
@@ -101,9 +102,10 @@
 
  .sub-hero {
      font-size: 1.5rem;
-     color: var(--cream);
+     color: var(--primary);
      margin-bottom: 3rem;
      opacity: 0.9;
+     font-weight: 600;
  }
 
  @media (max-width: 768px) {
@@ -170,8 +172,8 @@
 
  .level-age {
      font-size: 0.9rem;
-     color: var(--gold);
-     background: rgba(0, 0, 0, 0.3);
+     color: #fff;
+     background: var(--primary);
      padding: 0.3rem 0.8rem;
      border-radius: 10px;
  }
@@ -255,10 +257,10 @@
  .form-input {
      width: 100%;
      padding: 1rem;
-     background: rgba(0, 0, 0, 0.3);
-     border: 1px solid var(--primary);
+     background: #ffffff;
+     border: 1px solid #ddd;
      border-radius: 12px;
-     color: white;
+     color: var(--text-main);
      font-size: 1rem;
      transition: border-color 0.3s;
  }
@@ -266,11 +268,12 @@
  .form-input:focus {
      outline: none;
      border-color: var(--gold);
+     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
  }
 
  .file-upload {
      position: relative;
-     background: rgba(0, 0, 0, 0.3);
+     background: #ffffff;
      border: 2px dashed var(--primary);
      border-radius: 12px;
      padding: 2rem;
@@ -281,7 +284,7 @@
 
  .file-upload:hover {
      border-color: var(--gold);
-     background: rgba(0, 0, 0, 0.5);
+     background: #f8f9fa;
  }
 
  .file-upload input {
@@ -308,5 +311,86 @@
 
  .swal2-confirm {
      background-color: var(--gold) !important;
-     color: #00251a !important;
+     color: #ffffff !important;
+ }
+
+ /* Detailed Prizes */
+ .prize-detailed-card {
+     background: #ffffff;
+     border: 1px solid var(--glass-border);
+     border-radius: 15px;
+     padding: 1.5rem;
+     margin-bottom: 1.5rem;
+     box-shadow: 0 4px 10px rgba(0, 77, 64, 0.05);
+     transition: transform 0.3s;
+ }
+
+ .prize-detailed-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 20px rgba(0, 77, 64, 0.1);
+ }
+
+ .prize-category-title {
+     color: var(--primary);
+     font-size: 1.3rem;
+     font-weight: 700;
+     margin-bottom: 1rem;
+     border-bottom: 2px solid var(--gold-light);
+     padding-bottom: 0.5rem;
+     text-align: center;
+ }
+
+ .rank-list {
+     list-style: none;
+     padding: 0;
+ }
+
+ .rank-item {
+     display: flex;
+     justify-content: space-between;
+     padding: 0.8rem 0;
+     border-bottom: 1px dashed #eee;
+     font-size: 1rem;
+ }
+
+ .rank-item:last-child {
+     border-bottom: none;
+ }
+
+ .rank-pos {
+     font-weight: 600;
+     color: var(--secondary);
+ }
+
+ .rank-val {
+     color: var(--gold);
+     font-weight: 700;
+ }
+
+ /* Gallery */
+ .gallery-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     gap: 1.5rem;
+     padding: 2rem 0;
+ }
+
+ .gallery-item {
+     border-radius: 15px;
+     overflow: hidden;
+     height: 200px;
+     background: #e0e0e0;
+     position: relative;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .gallery-img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s;
+ }
+
+ .gallery-item:hover .gallery-img {
+     transform: scale(1.1);
  }
