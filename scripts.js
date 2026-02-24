@@ -133,3 +133,19 @@ if (form) {
 } else {
     console.error("Form element 'competitionForm' not found in DOM");
 }
+
+// Result Form Logic
+const resultForm = document.getElementById('resultForm');
+if (resultForm) {
+    resultForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'عفواً',
+            text: 'لم تظهر النتيجة حتى الآن، يرجى المحاولة لاحقاً',
+            icon: 'info',
+            confirmButtonText: 'حسناً',
+            confirmButtonColor: '#D4AF37'
+        });
+    });
+}

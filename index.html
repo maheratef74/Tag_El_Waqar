@@ -33,6 +33,328 @@
 
     <div class="container">
 
+        <!-- Competition Result -->
+        <section class="result-section" style="margin-bottom: 3rem;">
+            <h2 class="section-title" data-aos="fade-up" style="margin-bottom: 1.5rem;">استعلام عن النتيجة</h2>
+            <div class="glass-panel form-wrapper" data-aos="fade-up"
+                style="max-width: 500px; margin: 0 auto; text-align: center;">
+                <form id="resultForm">
+                    <div class="form-group">
+                        <label class="form-label">رقم المتسابق</label>
+                        <input type="number" class="form-input" id="contestantNumber"
+                            placeholder="أدخل رقمك الذي اخذته يوم الاختبار" required>
+                    </div>
+                    <button type="submit" class="btn-gold" style="margin-top: 1rem; width: 100%;">عرض النتيجة</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="schedule-section" style="margin-bottom: 4rem;">
+            <h2 class="section-title" data-aos="fade-up">جدول مواعيد المسابقة</h2>
+
+            <!-- 1 part -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i>جزء واحد</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة البنات: أبو بكر الصديق</div>
+                    <div class="schedule-committee">🔹 لجنة الأولاد: عثمان بن عفان</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(أ، ب، ت، ج، ح، د)</td>
+                                <td>(أ)</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ر، س، ص، ض)</td>
+                                <td>(ح، ر، ز، س، ص، ض)</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>(غ، ل، م، ن، ه، و)</td>
+                                <td>(ع، ف، ك)</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 م بعد الإفطار</td>
+                                <td>—</td>
+                                <td>(م، ن، ه، ي)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2 parts -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> جزئين</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة البنات: عمر بن الخطاب</div>
+                    <div class="schedule-committee">🔹 لجنة الأولاد: علي بن أبي طالب</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(أ، ب، ج، م، ن، ه، و، ي)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ح، خ، ر)</td>
+                                <td>(أ)</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>(ز، س، ش، ص)</td>
+                                <td>(ث، ح، ر، س، ع)</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 م بعد الإفطار</td>
+                                <td>—</td>
+                                <td>(ف، ك، م، ن، ه، و، ي)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3 parts -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> ثلاثة أجزاء</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة البنات: عمرو بن العاص</div>
+                    <div class="schedule-committee">🔹 لجنة الأولاد: خالد بن الوليد</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(أ، ب، ج، م، ن، ه، ي)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ح، خ، ر، ز)</td>
+                                <td>(أ، ح)</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>(س، ش، ف، ل)</td>
+                                <td>(ع)</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 م بعد الإفطار</td>
+                                <td>—</td>
+                                <td>(ص، ر، ط، ك، ل، م، ه، ي)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4 parts -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> أربعة أجزاء</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة بلال بن رباح</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>جميع الحروف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>كل الحروف</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 5 parts -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> خمسة أجزاء</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة البنات: أنس بن مالك</div>
+                    <div class="schedule-committee">🔹 لجنة الأولاد: بلال بن رباح</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(أ، ب، ج، د)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ر، س)</td>
+                                <td>(أ، ز، س، ض)</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>(ف، ل، م، ن)</td>
+                                <td>(ع، م، ي)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quarter Quran -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> ربع القرآن</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة معاذ بن جبل</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(أ، ب، ج، ح، د، ر)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ش، ل، م، ن، ه)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>—</td>
+                                <td>(أ، ش، ع، م، و)</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 م بعد الإفطار</td>
+                                <td>8 و10 أجزاء</td>
+                                <td>جميع الحروف</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Half Quran -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> نصف القرآن</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة عبدالرحمن بن عوف</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>البنات</th>
+                                <th>الأولاد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>(ت، ح)</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>(ر، س، ع)</td>
+                                <td>(ر، س، ع)</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 م</td>
+                                <td>(م، ن، ه)</td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Full Quran - 3 Quarters - 20 Parts -->
+            <div class="schedule-card" data-aos="fade-up">
+                <div class="schedule-header"><i class="fa-solid fa-book-quran"
+                        style="color: var(--gold); margin-left: 8px;"></i> القرآن كامل – ثلاثة أرباع – عشرون جزء</div>
+                <div class="schedule-committees">
+                    <div class="schedule-committee">🔹 لجنة عبدالله بن عباس</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>التوقيت</th>
+                                <th>الفئة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:00 م</td>
+                                <td>القرآن كامل – جميع الحروف</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 م</td>
+                                <td>ثلاثة أرباع + عشرون جزء – جميع الحروف</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
         <!-- Competitions -->
         <section class="levels-section">
             <h2 class="section-title" data-aos="fade-up">مستويات المسابقة</h2>
@@ -116,9 +438,10 @@
                     <span>مفاجئات</span>
                 </div>
             </div>
-
         </section>
+
         <!-- Prizes -->
+
         <section>
             <div class="prizes-list-container">
                 <div class="prize-detailed-card" data-aos="fade-up">
@@ -272,7 +595,7 @@
             </div>
         </section>
 
-        <!-- Registration Form -->
+        <!-- Registration Form
         <section id="register" class="form-section">
             <h2 class="section-title" data-aos="fade-up">التسجيل الإلكتروني</h2>
             <div class="glass-panel form-wrapper" data-aos="fade-up">
@@ -341,7 +664,7 @@
                 </form>
             </div>
         </section>
-
+ -->
 
         <!-- Gallery -->
         <section id="gallery" style="margin-top: 4rem; padding-bottom: 2rem;">

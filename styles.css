@@ -271,6 +271,11 @@
      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
  }
 
+ .form-input::placeholder {
+     font-size: 0.85rem;
+     color: #999;
+ }
+
  .file-upload {
      position: relative;
      background: #ffffff;
@@ -393,4 +398,85 @@
 
  .gallery-item:hover .gallery-img {
      transform: scale(1.1);
+ }
+
+ /* Schedule Tables */
+ .schedule-card {
+     background: #ffffff;
+     border: 1px solid var(--glass-border);
+     border-radius: 15px;
+     padding: 1.5rem;
+     margin-bottom: 1.5rem;
+     box-shadow: 0 4px 10px rgba(0, 77, 64, 0.05);
+     overflow: hidden;
+ }
+
+ .schedule-header {
+     background: linear-gradient(45deg, var(--gold), #F7D45C);
+     color: #00251a;
+     padding: 1rem;
+     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+     font-weight: 700;
+     text-align: center;
+     font-size: 1.2rem;
+     border-bottom: 3px solid var(--primary);
+ }
+
+ .schedule-committees {
+     display: flex;
+     justify-content: space-around;
+     flex-wrap: wrap;
+     gap: 1rem;
+     margin-bottom: 1.5rem;
+     font-weight: 600;
+     color: var(--secondary);
+ }
+
+ .schedule-committee {
+     background: #f0f4f8;
+     padding: 0.5rem 1rem;
+     border-radius: 8px;
+     border: 1px dashed var(--gold);
+ }
+
+ .table-responsive {
+     overflow-x: auto;
+     border-radius: 12px;
+     border: 1px solid #eee;
+ }
+
+ .schedule-table {
+     width: 100%;
+     border-collapse: collapse;
+     text-align: center;
+ }
+
+ .schedule-table th,
+ .schedule-table td {
+     padding: 1rem 0.5rem;
+     border-bottom: 1px solid #eee;
+ }
+
+ .schedule-table th {
+     background-color: var(--primary);
+     color: white;
+     font-weight: 600;
+ }
+
+ .schedule-table tr:hover {
+     background-color: #fcfcfc;
+ }
+
+ .schedule-table td {
+     color: var(--text-main);
+     font-size: 0.95rem;
+ }
+
+ @media (max-width: 600px) {
+
+     .schedule-table th,
+     .schedule-table td {
+         padding: 0.8rem 0.3rem;
+         font-size: 0.85rem;
+     }
  }
