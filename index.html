@@ -1454,7 +1454,7 @@
                         <div class="search-result-info">
                             <div class="search-result-name">${m.name}</div>
                             <div class="search-result-category">${m.category}</div>
-                            <div class="search-result-details">المركز <span>${m.position}</span></div>
+                            <div class="search-result-details">${isGrade(m.position) ? 'التقدير' : 'المركز'} <span>${m.position}</span></div>
                         </div>
                         <div class="search-result-degree">${m.degree}</div>
                     </div>
