@@ -4,559 +4,862 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تاج الوقار - الموسم الرابع</title>
-
-    <!-- Fonts -->
+    <title>نتائج مسابقة حفظ القرآن الكريم</title>
+    <meta name="description" content="نتائج مسابقة حفظ القرآن الكريم - تاج الوقار">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===== CSS Reset & Variables ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --green-darkest: #0a1f13;
+            --green-dark: #0d2b18;
+            --green-deep: #14532d;
+            --green-primary: #166534;
+            --green-medium: #1a7a3e;
+            --green-light: #22c55e;
+            --green-pale: #dcfce7;
+            --gold-dark: #92400e;
+            --gold-primary: #b8860b;
+            --gold-light: #d4a017;
+            --gold-bright: #fbbf24;
+            --gold-pale: #fef3c7;
+            --white: #ffffff;
+            --off-white: #f7f8fa;
+            --bg-main: #ffffff;
+            --bg-section: #f9fafb;
+            --gray-light: #e5e7eb;
+            --gray-medium: #9ca3af;
+            --gray-border: #e5e7eb;
+            --text-dark: #1f2937;
+            --text-body: #374151;
+            --text-muted: #6b7280;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+            --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+        }
+
+        /* ===== MOBILE-FIRST Base Styles ===== */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--green-darkest);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(22, 101, 52, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 160, 23, 0.08) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        /* ===== Main Container (Mobile first) ===== */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 12px 40px;
+        }
+
+        /* ===== Hero Header ===== */
+        .hero {
+            text-align: center;
+            padding: 28px 16px 24px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-primary) 50%, var(--green-deep) 100%);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-bright), var(--gold-primary), transparent);
+        }
+
+        .hero-bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: var(--gold-bright);
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright));
+            color: var(--green-darkest);
+            padding: 4px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-bright);
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 400;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            margin: 16px auto 0;
+        }
+
+        .star-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: var(--gold-bright);
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
+
+        .star-decoration span {
+            font-size: 1rem;
+        }
+
+        /* ===== Category Section ===== */
+        .category-section {
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .category-section.visible {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Category Header ===== */
+        .category-header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 16px;
+            padding: 20px 14px;
+            background: linear-gradient(135deg, var(--green-deep), var(--green-primary));
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .category-header::before,
+        .category-header::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-bright), var(--gold-primary), transparent);
+        }
+
+        .category-header::before {
+            top: 0;
+        }
+
+        .category-header::after {
+            bottom: 0;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .category-header h2 {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .category-header h2 span {
+            color: var(--gold-bright);
+        }
+
+        .category-count {
+            display: inline-block;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        /* ===== Group Label ===== */
+        .group-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            margin-top: 4px;
+            padding: 0 4px;
+        }
+
+        .group-label h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            color: var(--gold-bright);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .group-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212, 160, 23, 0.4), transparent);
+        }
+
+        /* ===== Cards Grid (Mobile First: 2 columns) ===== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* ===== Contestant Card ===== */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            padding: 14px 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--gray-border);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green-primary), var(--green-medium));
+            opacity: 0.6;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        /* Gold card for rank-1 */
+        .card.rank-1::before {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706, #f59e0b, #fbbf24);
+            height: 4px;
+            opacity: 1;
+        }
+
+        .card.rank-1 {
+            border-color: rgba(251, 191, 36, 0.35);
+            background: linear-gradient(to bottom, #fffbeb, var(--white));
+        }
+
+        .card.rank-2::before {
+            background: linear-gradient(90deg, #94a3b8, #cbd5e1, #e2e8f0, #cbd5e1, #94a3b8);
+            height: 4px;
+            opacity: 1;
+        }
+
+        .card.rank-2 {
+            border-color: rgba(148, 163, 184, 0.3);
+            background: linear-gradient(to bottom, #f8fafc, var(--white));
+        }
+
+        .card.rank-3::before {
+            background: linear-gradient(90deg, #b45309, #d97706, #f59e0b, #d97706, #b45309);
+            height: 4px;
+            opacity: 1;
+        }
+
+        .card.rank-3 {
+            border-color: rgba(217, 119, 6, 0.25);
+            background: linear-gradient(to bottom, #fffbeb, var(--white));
+        }
+
+        /* Rank badge */
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            left: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--green-primary), var(--green-medium));
+            box-shadow: 0 2px 6px rgba(22, 101, 52, 0.25);
+        }
+
+        .card.rank-1 .rank-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+            width: 36px;
+            height: 36px;
+        }
+
+        .card.rank-2 .rank-badge {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
+        }
+
+        .card.rank-3 .rank-badge {
+            background: linear-gradient(135deg, #d97706, #b45309);
+        }
+
+        /* Grade badge */
+        .grade-badge {
+            position: absolute;
+            top: 10px;
+            left: 6px;
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .grade-badge.grade-امتياز {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .grade-badge.grade-جيد-جدا {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+
+        .grade-badge.grade-جيد {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        }
+
+        .grade-badge.grade-مقبول {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+        }
+
+        .card-content {
+            text-align: center;
+            padding-top: 4px;
+        }
+
+        .contestant-name {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.5;
+            min-height: 2.2em;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .degree-circle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .degree-circle::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: conic-gradient(var(--green-primary) calc(var(--degree) * 1%), var(--gray-light) 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .degree-circle.high {
+            color: var(--green-primary);
+            background: rgba(22, 101, 52, 0.06);
+        }
+
+        .degree-circle.medium {
+            color: var(--gold-dark);
+            background: rgba(184, 134, 11, 0.06);
+        }
+
+        .degree-circle.medium::before {
+            background: conic-gradient(var(--gold-primary) calc(var(--degree) * 1%), var(--gray-light) 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .degree-circle.low {
+            color: #6b7280;
+            background: rgba(107, 114, 128, 0.06);
+        }
+
+        .degree-circle.low::before {
+            background: conic-gradient(#6b7280 calc(var(--degree) * 1%), var(--gray-light) 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .degree-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .position-text {
+            margin-top: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--green-primary);
+            background: var(--green-pale);
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 50px;
+        }
+
+        /* ===== Grades Section (Collapsible) ===== */
+        .grades-section {
+            display: none;
+            margin-top: 16px;
+        }
+
+        .grades-section.visible {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .grades-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .grades-divider::before,
+        .grades-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.3), transparent);
+        }
+
+        .grades-divider span {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold-bright);
+            white-space: nowrap;
+            font-weight: 700;
+        }
+
+        /* ===== Toggle Button ===== */
+        .toggle-btn {
+            display: block;
+            width: 100%;
+            margin: 16px auto 0;
+            padding: 11px 24px;
+            background: rgba(212, 160, 23, 0.1);
+            color: var(--gold-bright);
+            border: 1.5px solid rgba(212, 160, 23, 0.35);
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .toggle-btn:active {
+            background: rgba(212, 160, 23, 0.2);
+            transform: scale(0.98);
+        }
+
+        .toggle-btn svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-btn.active svg {
+            transform: rotate(180deg);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 28px 16px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.78rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 20px;
+        }
+
+        .footer .quran-verse {
+            font-family: 'Amiri', serif;
+            font-size: 1.05rem;
+            color: var(--gold-primary);
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        /* ===== Loading Spinner ===== */
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            color: var(--white);
+            gap: 16px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(212, 160, 23, 0.2);
+            border-top-color: var(--gold-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader-text {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== Empty State ===== */
+        .empty-state {
+            text-align: center;
+            padding: 40px 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Trophy icon ===== */
+        .trophy-icon {
+            font-size: 0.95rem;
+        }
+
+        /* ================================================================
+           TABLET: 576px+
+           ================================================================ */
+        @media (min-width: 576px) {
+            .main-container {
+                padding: 0 16px 50px;
+            }
+
+            .hero {
+                padding: 32px 20px 28px;
+                margin-bottom: 30px;
+                border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            }
+
+            .hero-bismillah {
+                font-size: 1.7rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .category-header {
+                padding: 24px 18px;
+            }
+
+            .category-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 16px 12px;
+            }
+
+            .contestant-name {
+                font-size: 0.88rem;
+            }
+
+            .degree-circle {
+                width: 58px;
+                height: 58px;
+                font-size: 1.1rem;
+            }
+
+            .toggle-btn {
+                width: auto;
+                padding: 11px 36px;
+            }
+
+            .category-section {
+                margin-bottom: 35px;
+            }
+        }
+
+        /* ================================================================
+           DESKTOP: 768px+
+           ================================================================ */
+        @media (min-width: 768px) {
+            .main-container {
+                padding: 0 24px 60px;
+            }
+
+            .hero {
+                padding: 40px 30px 35px;
+                margin-bottom: 40px;
+                border-radius: 0 0 24px 24px;
+            }
+
+            .hero-bismillah {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-badge {
+                padding: 5px 26px;
+                font-size: 0.82rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+
+            .category-header {
+                padding: 28px 24px;
+                border-radius: var(--radius-lg);
+            }
+
+            .category-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 20px 16px;
+                border-radius: var(--radius-md);
+            }
+
+            .card:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .rank-badge {
+                width: 38px;
+                height: 38px;
+                font-size: 0.65rem;
+                top: 12px;
+                left: 12px;
+            }
+
+            .card.rank-1 .rank-badge {
+                width: 42px;
+                height: 42px;
+            }
+
+            .grade-badge {
+                font-size: 0.65rem;
+                padding: 3px 12px;
+                top: 12px;
+                left: 10px;
+            }
+
+            .contestant-name {
+                font-size: 0.95rem;
+            }
+
+            .degree-circle {
+                width: 66px;
+                height: 66px;
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .position-text {
+                font-size: 0.78rem;
+                padding: 3px 16px;
+            }
+
+            .group-label h3 {
+                font-size: 1.1rem;
+            }
+
+            .toggle-btn {
+                font-size: 0.92rem;
+                padding: 12px 40px;
+                border-radius: 50px;
+            }
+
+            .toggle-btn:hover {
+                background: rgba(212, 160, 23, 0.2);
+                border-color: rgba(212, 160, 23, 0.6);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 15px rgba(212, 160, 23, 0.15);
+            }
+
+            .category-section {
+                margin-bottom: 45px;
+            }
+
+            .footer {
+                padding: 36px 24px;
+                font-size: 0.85rem;
+            }
+
+            .footer .quran-verse {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ================================================================
+           LARGE DESKTOP: 1024px+
+           ================================================================ */
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-bismillah {
+                font-size: 2.3rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 18px;
+            }
+
+            .card {
+                padding: 22px 18px;
+            }
+
+            .degree-circle {
+                width: 72px;
+                height: 72px;
+                font-size: 1.3rem;
+            }
+
+            .contestant-name {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== Very small mobile ===== */
+        @media (max-width: 359px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Hero -->
-    <header class="hero">
-        <div data-aos="zoom-in" data-aos-duration="1500">
-            <h1 class="hero-logo">مسابقة تاج الوقار للقرآن الكريم</h1>
-            <p class="sub-hero">الموسم الرابع </p>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <!-- Competition Result -->
-        <section class="result-section" style="margin-bottom: 3rem;">
-            <h2 class="section-title" data-aos="fade-up" style="margin-bottom: 1.5rem;">استعلام عن النتيجة</h2>
-            <div class="glass-panel form-wrapper" data-aos="fade-up"
-                style="max-width: 500px; margin: 0 auto; text-align: center;">
-                <form id="resultForm">
-                    <div class="form-group">
-                        <label class="form-label">رقم المتسابق</label>
-                        <input type="number" class="form-input" id="contestantNumber"
-                            placeholder="أدخل رقمك الذي اخذته يوم الاختبار" required>
-                    </div>
-                    <button type="submit" class="btn-gold" style="margin-top: 1rem; width: 100%;">عرض النتيجة</button>
-                </form>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <header class="hero" id="hero">
+            <div class="hero-bismillah">﷽</div>
+            <div class="hero-badge">مسابقة حفظ القرآن الكريم</div>
+            <h1>نتائج مسابقة <span>تاج الوقار</span></h1>
+            <p class="hero-subtitle">لحفظ القرآن الكريم وتجويده</p>
+            <div class="hero-divider"></div>
+            <div class="star-decoration">
+                ✦ ✦ <span>☪</span> ✦ ✦
             </div>
-        </section>
+        </header>
 
-        <!-- Schedule Section -->
-        <section class="schedule-section" style="margin-bottom: 4rem;">
-            <h2 class="section-title" data-aos="fade-up">جدول مواعيد المسابقة</h2>
-
-            <!-- 1 part -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i>جزء واحد</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة البنات: أبو بكر الصديق</div>
-                    <div class="schedule-committee">🔹 لجنة الأولاد: عثمان بن عفان</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(أ، ب، ت، ج، ح، د)</td>
-                                <td>(أ)</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ر، س، ص، ض)</td>
-                                <td>(ح، ر، ز، س، ص، ض)</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>(غ، ل، م، ن، ه، و)</td>
-                                <td>(ع، ف، ك)</td>
-                            </tr>
-                            <tr>
-                                <td>7:00 م بعد الإفطار</td>
-                                <td>—</td>
-                                <td>(م، ن، ه، ي)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <!-- Content will be injected here -->
+        <main id="results-container">
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p class="loader-text">جاري تحميل النتائج...</p>
             </div>
-
-            <!-- 2 parts -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> جزئين</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة البنات: عمر بن الخطاب</div>
-                    <div class="schedule-committee">🔹 لجنة الأولاد: علي بن أبي طالب</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(أ، ب، ج، م، ن، ه، و، ي)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ح، خ، ر)</td>
-                                <td>(أ)</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>(ز، س، ش، ص)</td>
-                                <td>(ث، ح، ر، س، ع)</td>
-                            </tr>
-                            <tr>
-                                <td>7:00 م بعد الإفطار</td>
-                                <td>—</td>
-                                <td>(ف، ك، م، ن، ه، و، ي)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 3 parts -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> ثلاثة أجزاء</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة البنات: عمرو بن العاص</div>
-                    <div class="schedule-committee">🔹 لجنة الأولاد: خالد بن الوليد</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(أ، ب، ج، م، ن، ه، ي)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ح، خ، ر، ز)</td>
-                                <td>(أ، ح)</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>(س، ش، ف، ل)</td>
-                                <td>(ع)</td>
-                            </tr>
-                            <tr>
-                                <td>7:00 م بعد الإفطار</td>
-                                <td>—</td>
-                                <td>(ص، ر، ط، ك، ل، م، ه، ي)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 4 parts -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> أربعة أجزاء</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة بلال بن رباح</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>جميع الحروف</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>كل الحروف</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 5 parts -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> خمسة أجزاء</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة البنات: أنس بن مالك</div>
-                    <div class="schedule-committee">🔹 لجنة الأولاد: بلال بن رباح</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(أ، ب، ج، د)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ر، س)</td>
-                                <td>(أ، ز، س، ض)</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>(ف، ل، م، ن)</td>
-                                <td>(ع، م، ي)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Quarter Quran -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> ربع القرآن</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة معاذ بن جبل</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(أ، ب، ج، ح، د، ر)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ش، ل، م، ن، ه)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>—</td>
-                                <td>(أ، ش، ع، م، و)</td>
-                            </tr>
-                            <tr>
-                                <td>7:00 م بعد الإفطار</td>
-                                <td>8 و10 أجزاء</td>
-                                <td>جميع الحروف</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Half Quran -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> نصف القرآن</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة عبدالرحمن بن عوف</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>البنات</th>
-                                <th>الأولاد</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>(ت، ح)</td>
-                                <td>—</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>(ر، س، ع)</td>
-                                <td>(ر، س، ع)</td>
-                            </tr>
-                            <tr>
-                                <td>4:00 م</td>
-                                <td>(م، ن، ه)</td>
-                                <td>—</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Full Quran - 3 Quarters - 20 Parts -->
-            <div class="schedule-card" data-aos="fade-up">
-                <div class="schedule-header"><i class="fa-solid fa-book-quran"
-                        style="color: var(--gold); margin-left: 8px;"></i> القرآن كامل – ثلاثة أرباع – عشرون جزء</div>
-                <div class="schedule-committees">
-                    <div class="schedule-committee">🔹 لجنة عبدالله بن عباس</div>
-                </div>
-                <div class="table-responsive">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>التوقيت</th>
-                                <th>الفئة</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1:00 م</td>
-                                <td>القرآن كامل – جميع الحروف</td>
-                            </tr>
-                            <tr>
-                                <td>3:00 م</td>
-                                <td>ثلاثة أرباع + عشرون جزء – جميع الحروف</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Competitions -->
-        <section class="levels-section">
-            <h2 class="section-title" data-aos="fade-up">مستويات المسابقة</h2>
-
-            <div data-aos="fade-left" data-aos-delay="100">
-                <div class="glass-panel level-card">
-                    <span class="level-name">القرآن كاملاً</span>
-                    <span class="level-age">لا يزيد عن 29 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="200">
-                <div class="glass-panel level-card">
-                    <span class="level-name">ثلاثة أرباع القرآن</span>
-                    <span class="level-age">لا يزيد عن 25 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="300">
-                <div class="glass-panel level-card">
-                    <span class="level-name">نصف القرآن</span>
-                    <span class="level-age">لا يزيد عن 22 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="400">
-                <div class="glass-panel level-card">
-                    <span class="level-name">ربع القرآن</span>
-                    <span class="level-age">لا يزيد عن 19 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="500">
-                <div class="glass-panel level-card">
-                    <span class="level-name">5 أجزاء</span>
-                    <span class="level-age">لا يزيد عن 17 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="600">
-                <div class="glass-panel level-card">
-                    <span class="level-name">3 أجزاء</span>
-                    <span class="level-age">لا يزيد عن 15 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="700">
-                <div class="glass-panel level-card">
-                    <span class="level-name">جزأين</span>
-                    <span class="level-age">لا يزيد عن 12 سنة</span>
-                </div>
-            </div>
-
-            <div data-aos="fade-left" data-aos-delay="800">
-                <div class="glass-panel level-card">
-                    <span class="level-name">جزء واحد</span>
-                    <span class="level-age">لا يزيد عن 10 سنوات</span>
-                </div>
-            </div>
-
-
-        </section>
-        <!-- Prizes -->
-        <section>
-            <h2 class="section-title" data-aos="fade-up">الجوائز</h2>
-            <div class="prizes-grid">
-                <div class="glass-panel prize-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="./images/umrah.png" alt="عمرة" class="prize-img">
-                    <span>عمرة</span>
-                </div>
-                <div class="glass-panel prize-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="./images/gold.png" alt="سبائك ذهب" class="prize-img">
-                    <span>سبائك ذهب</span>
-                </div>
-                <div class="glass-panel prize-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="./images/money.png" alt="جوائز مالية" class="prize-img">
-                    <span>جوائز مالية</span>
-                </div>
-                <div class="glass-panel prize-item" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="./images/gift.png" alt="مفاجئات" class="prize-img">
-                    <span>مفاجئات</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Prizes -->
-
-        <section>
-            <div class="prizes-list-container">
-                <div class="prize-detailed-card" data-aos="fade-up">
-                    <h3 class="prize-category-title">القرآن الكريم كاملاً</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">الجائزة</span><span class="rank-val">رحلة
-                                عمرة</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="prize-category-title">ثلاثة أرباع القرآن</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">سبيكة
-                                ذهب</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">2500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">2000
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="150">
-                    <h3 class="prize-category-title">نصف القرآن</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">2500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">2000
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">1500
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="prize-category-title">ربع القرآن</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">2000
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">1500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">1000
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="250">
-                    <h3 class="prize-category-title">5 أجزاء</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">1000
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">900
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">800
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الرابع</span><span class="rank-val">700
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الخامس</span><span class="rank-val">600
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="prize-category-title">3 أجزاء</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">800
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">700
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">600
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الرابع</span><span class="rank-val">500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الخامس</span><span class="rank-val">400
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="350">
-                    <h3 class="prize-category-title">جزأين</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">700
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">600
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الرابع</span><span class="rank-val">400
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الخامس</span><span class="rank-val">350
-                                ج.م</span></li>
-                    </ul>
-                </div>
-                <div class="prize-detailed-card" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="prize-category-title">جزء واحد</h3>
-                    <ul class="rank-list">
-                        <li class="rank-item"><span class="rank-pos">المركز الأول</span><span class="rank-val">600
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثاني</span><span class="rank-val">550
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثالث</span><span class="rank-val">500
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الرابع</span><span class="rank-val">450
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الخامس</span><span class="rank-val">400
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز السادس</span><span class="rank-val">350
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز السابع</span><span class="rank-val">300
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز الثامن</span><span class="rank-val">250
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز التاسع</span><span class="rank-val">200
-                                ج.م</span></li>
-                        <li class="rank-item"><span class="rank-pos">المركز العاشر</span><span class="rank-val">150
-                                ج.م</span></li>
-                    </ul>
-                </div>
-            </div>
-
-        </section>
+        </main>
 
         <!-- Info -->
         <section>
@@ -564,17 +867,11 @@
                 <div class="info-item">
                     <i class="fas fa-calendar-alt"></i>
                     <div>
-                        <strong>بداية الاختبارات:</strong><br>
-                        10 رمضان
+                        <strong>موعد الحفل :</strong><br>
+                        يحدد لاحقا
                     </div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-mosque"></i>
-                    <div>
-                        <strong>مكان الاختبارات:</strong><br>
-                        دوار اللبيدي
-                    </div>
-                </div>
+
                 <div class="info-item">
                     <i class="fas fa-trophy"></i>
                     <div>
@@ -595,76 +892,6 @@
             </div>
         </section>
 
-        <!-- Registration Form
-        <section id="register" class="form-section">
-            <h2 class="section-title" data-aos="fade-up">التسجيل الإلكتروني</h2>
-            <div class="glass-panel form-wrapper" data-aos="fade-up">
-                <form id="competitionForm">
-                    <div class="form-group">
-                        <label class="form-label">الاسم ثلاثي</label>
-                        <input type="text" class="form-input" id="name" required>
-                    </div>
-
-                    <div class="form-group grid-2">
-                        <label class="form-label">السن</label>
-                        <input type="number" class="form-input" id="age" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">تاريخ الميلاد</label>
-                        <input type="date" class="form-input" id="dob" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">العنوان</label>
-                        <input type="text" class="form-input" id="address" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">رقم الواتساب</label>
-                        <input type="tel" class="form-input" id="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">المستوى (عدد الأجزاء)</label>
-                        <select class="form-input" id="level" required>
-                            <option value="" disabled selected>اختر المستوى</option>
-                            <option value="القرآن كاملاً">القرآن كاملاً</option>
-                            <option value="ثلاثة أرباع القرآن">ثلاثة أرباع القرآن</option>
-                            <option value="نصف القرآن">نصف القرآن</option>
-                            <option value="ربع القرآن">ربع القرآن</option>
-                            <option value="5 أجزاء">5 أجزاء</option>
-                            <option value="3 أجزاء">3 أجزاء</option>
-                            <option value="جزأين">جزأين</option>
-                            <option value="جزء واحد">جزء واحد</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">صورة شخصية</label>
-                        <div class="file-upload">
-                            <i class="fas fa-camera fa-2x" style="color: var(--gold); margin-bottom: 0.5rem;"></i>
-                            <p id="photo-label">اضغط لرفع الصورة</p>
-                            <input type="file" id="photo" accept="image/*" required
-                                onchange="updateLabel(this, 'photo-label')">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">صورة شهادة الميلاد</label>
-                        <div class="file-upload">
-                            <i class="fas fa-id-card fa-2x" style="color: var(--gold); margin-bottom: 0.5rem;"></i>
-                            <p id="cert-label">اضغط لرفع السند</p>
-                            <input type="file" id="cert" accept="image/*" required
-                                onchange="updateLabel(this, 'cert-label')">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-gold" style="margin-top: 2rem;">إرسال التسجيل</button>
-                </form>
-            </div>
-        </section>
- -->
 
         <!-- Gallery -->
         <section id="gallery" style="margin-top: 4rem; padding-bottom: 2rem;">
@@ -709,29 +936,249 @@
                 </div>
             </div>
         </section>
-
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="quran-verse">« خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ »</p>
+            <p>مسابقة تاج الوقار لحفظ القرآن الكريم</p>
+        </footer>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="scripts.js"></script>
-
     <script>
-        // AOS Animation Init
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 1000,
-        });
+        // Grade values used to classify contestants
+        const GRADE_VALUES = ['امتياز', 'جيد جدا', 'جيد', 'مقبول'];
 
-        // UI Helpers
-        window.updateLabel = function (input, labelId) {
-            if (input.files && input.files[0]) {
-                document.getElementById(labelId).innerText = input.files[0].name;
-                document.getElementById(labelId).style.color = "#D4AF37";
+        // Rank names for card styling (first, second, third)
+        const RANK_ORDER = {
+            'اول': 1, 'اول مكرر': 1, 'الأول': 1, 'الأول مكرر': 1,
+            'ثاني': 2, 'ثاني مكرر': 2, 'الثاني': 2, 'الثاني مكرر': 2,
+            'ثالث': 3, 'ثالث مكرر': 3, 'الثالث': 3, 'الثالث مكرر': 3
+        };
+
+        // Category icon mapping
+        function getCategoryIcon(name) {
+            if (name.includes('كامل')) return '📖';
+            if (name.includes('ارباع') || name.includes('أرباع')) return '📗';
+            if (name.includes('نصف')) return '📘';
+            if (name.includes('ربع')) return '📙';
+            if (name.includes('عشره') || name.includes('عشرة')) return '📕';
+            return '📖';
+        }
+
+        // Determine degree level for styling
+        function getDegreeLevel(degree) {
+            if (degree >= 85) return 'high';
+            if (degree >= 65) return 'medium';
+            return 'low';
+        }
+
+        // Check if a position is a grade
+        function isGrade(position) {
+            return GRADE_VALUES.includes(position.trim());
+        }
+
+        // Get rank number for card styling classes
+        function getRankNumber(position) {
+            const trimmed = position.trim();
+            return RANK_ORDER[trimmed] || 0;
+        }
+
+        // Build a single contestant card HTML
+        function buildCard(contestant, isGradeCard) {
+            const degree = contestant.degree;
+            const position = contestant.position.trim();
+            const degreeLevel = getDegreeLevel(degree);
+            const rankNum = getRankNumber(position);
+
+            let cardClass = 'card';
+            if (!isGradeCard && rankNum > 0 && rankNum <= 3) {
+                cardClass += ` rank-${rankNum}`;
+            }
+
+            let badgeHTML = '';
+            if (isGradeCard) {
+                let gradeClass = '';
+                if (position === 'امتياز') gradeClass = 'grade-امتياز';
+                else if (position === 'جيد جدا') gradeClass = 'grade-جيد-جدا';
+                else if (position === 'جيد') gradeClass = 'grade-جيد';
+                else if (position === 'مقبول') gradeClass = 'grade-مقبول';
+                badgeHTML = `<div class="grade-badge ${gradeClass}">${position}</div>`;
+            } else {
+                let badgeContent = position;
+                if (rankNum === 1) badgeContent = `<span class="trophy-icon">🏆</span>`;
+                else if (rankNum === 2) badgeContent = `<span class="trophy-icon">🥈</span>`;
+                else if (rankNum === 3) badgeContent = `<span class="trophy-icon">🥉</span>`;
+                badgeHTML = `<div class="rank-badge">${badgeContent}</div>`;
+            }
+
+            return `
+                <div class="${cardClass}">
+                    ${badgeHTML}
+                    <div class="card-content">
+                        <div class="contestant-name">${contestant.name.trim()}</div>
+                        <div class="degree-circle ${degreeLevel}" style="--degree: ${degree}">
+                            ${degree}
+                        </div>
+                        <div class="degree-label">الدرجة</div>
+                        <div class="position-text">${position}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Build a full category section
+        function buildCategorySection(categoryName, contestants, index) {
+            const topRanks = contestants.filter(c => !isGrade(c.position));
+            const grades = contestants.filter(c => isGrade(c.position));
+            const totalCount = contestants.length;
+            const icon = getCategoryIcon(categoryName);
+
+            let html = `
+                <section class="category-section" id="category-${index}">
+                    <div class="category-header">
+                        <h2><span>${categoryName}</span></h2>
+                        <div class="category-count">${totalCount} متسابق</div>
+                    </div>
+            `;
+
+            // Top Ranks Group
+            if (topRanks.length > 0) {
+                html += `
+                    <div class="group-label">
+                        <h3>🏅 المراكز الأولى</h3>
+                    </div>
+                    <div class="cards-grid">
+                        ${topRanks.map(c => buildCard(c, false)).join('')}
+                    </div>
+                `;
+            }
+
+            // Grades Group (hidden by default)
+            if (grades.length > 0) {
+                html += `
+                    <div class="grades-section" id="grades-${index}">
+                        <div class="grades-divider">
+                            <span>✦ التقديرات ✦</span>
+                        </div>
+                        <div class="cards-grid">
+                            ${grades.map(c => buildCard(c, true)).join('')}
+                        </div>
+                    </div>
+                    <button class="toggle-btn" id="toggle-${index}" onclick="toggleGrades(${index})">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        عرض باقي التقديرات (${grades.length})
+                    </button>
+                `;
+            }
+
+            html += `</section>`;
+            return html;
+        }
+
+        // Toggle grades visibility
+        function toggleGrades(index) {
+            const section = document.getElementById(`grades-${index}`);
+            const btn = document.getElementById(`toggle-${index}`);
+            const isVisible = section.classList.contains('visible');
+
+            if (isVisible) {
+                section.classList.remove('visible');
+                btn.classList.remove('active');
+                const count = section.querySelectorAll('.card').length;
+                btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    عرض باقي التقديرات (${count})
+                `;
+            } else {
+                section.classList.add('visible');
+                btn.classList.add('active');
+                btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    إخفاء التقديرات
+                `;
+                section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
+
+        // Intersection observer for scroll animations
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            document.querySelectorAll('.category-section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Main function
+        async function loadResults() {
+            const container = document.getElementById('results-container');
+
+            try {
+                const response = await fetch('results.json');
+                if (!response.ok) throw new Error('فشل تحميل البيانات');
+                const data = await response.json();
+
+                // Custom category order (largest memorization first)
+                const CATEGORY_ORDER = [
+                    'القرآن كامل',
+                    'ثلاث ارباع القرآن',
+                    'نصف القرآن',
+                    'عشره اجزاء',
+                    'ربع القرآن',
+                    '5 أجزاء',
+                    '4 أجزاء',
+                    '3 أجزاء',
+                    'جزأين',
+                    'الجزء'
+                ];
+
+                const allKeys = Object.keys(data);
+                const categories = CATEGORY_ORDER.filter(cat => allKeys.includes(cat));
+                // Append any keys from JSON not in our predefined order
+                allKeys.forEach(key => {
+                    if (!categories.includes(key)) categories.push(key);
+                });
+
+                if (categories.length === 0) {
+                    container.innerHTML = '<div class="empty-state">لا توجد نتائج لعرضها</div>';
+                    return;
+                }
+
+                let allHTML = '';
+                categories.forEach((catName, index) => {
+                    allHTML += buildCategorySection(catName, data[catName], index);
+                });
+
+                container.innerHTML = allHTML;
+                setupScrollAnimations();
+
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <p>⚠️ حدث خطأ أثناء تحميل النتائج</p>
+                        <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.7;">${error.message}</p>
+                    </div>
+                `;
+                console.error('Error loading results:', error);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadResults);
     </script>
 </body>
 
