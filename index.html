@@ -841,6 +841,191 @@
                 gap: 8px;
             }
         }
+
+        /* ===== Search Section ===== */
+        .search-section {
+            margin-bottom: 24px;
+            padding: 0 4px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 44px 14px 44px;
+            border: 2px solid rgba(212, 160, 23, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--white);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
+        }
+
+        .search-input:focus {
+            border-color: var(--gold-bright);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(212, 160, 23, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: color 0.3s;
+        }
+
+        .search-input:focus~.search-icon {
+            color: var(--gold-bright);
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .search-clear.visible {
+            display: flex;
+        }
+
+        .search-clear:active {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Search Results */
+        .search-results {
+            margin-top: 16px;
+            display: none;
+        }
+
+        .search-results.visible {
+            display: block;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .search-results-count {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.82rem;
+            margin-bottom: 12px;
+        }
+
+        .search-result-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-card);
+        }
+
+        .search-result-card .result-rank-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .search-result-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .search-result-name {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .search-result-category {
+            font-size: 0.75rem;
+            color: var(--green-primary);
+            font-weight: 600;
+            background: var(--green-pale);
+            display: inline-block;
+            padding: 1px 10px;
+            border-radius: 50px;
+            margin-bottom: 4px;
+        }
+
+        .search-result-details {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .search-result-details span {
+            font-weight: 700;
+            color: var(--green-primary);
+        }
+
+        .search-result-degree {
+            flex-shrink: 0;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--green-primary);
+            background: var(--green-pale);
+            border: 2px solid rgba(22, 101, 52, 0.2);
+        }
+
+        .search-no-results {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .search-no-results .no-result-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        @media (min-width: 576px) {
+            .search-results {
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 16px;
+            }
+        }
     </style>
 </head>
 
@@ -857,6 +1042,17 @@
                 ✦ ✦ <span>☪</span> ✦ ✦
             </div>
         </header>
+
+        <!-- Search Section -->
+        <div class="search-section" id="search-section">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="search-input" placeholder="ابحث عن اسمك هنا..."
+                    autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+                <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
 
         <!-- Content will be injected here -->
         <main id="results-container">
@@ -1020,7 +1216,7 @@
                             ${degree}
                         </div>
                         <div class="degree-label">الدرجة</div>
-                        <div class="position-text">المركز ${position}</div>
+                        <div class="position-text">${isGradeCard ? 'التقدير' : 'المركز'} ${position}</div>
                     </div>
                 </div>
             `;
@@ -1132,6 +1328,7 @@
                 const response = await fetch('results.json');
                 if (!response.ok) throw new Error('فشل تحميل البيانات');
                 const data = await response.json();
+                allData = data;
 
                 // Custom category order (largest memorization first)
                 const CATEGORY_ORDER = [
@@ -1179,8 +1376,100 @@
             }
         }
 
+        // Store data globally for search
+        let allData = null;
+
+        // Search functionality
+        function setupSearch() {
+            const input = document.getElementById('search-input');
+            const clearBtn = document.getElementById('search-clear');
+            let debounceTimer;
+
+            input.addEventListener('input', function () {
+                clearBtn.classList.toggle('visible', this.value.length > 0);
+
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    performSearch(this.value.trim());
+                }, 300);
+            });
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('search-input');
+            input.value = '';
+            document.getElementById('search-clear').classList.remove('visible');
+            document.getElementById('search-results').classList.remove('visible');
+            document.getElementById('search-results').innerHTML = '';
+        }
+
+        function performSearch(query) {
+            const resultsDiv = document.getElementById('search-results');
+
+            if (!query || query.length < 2 || !allData) {
+                resultsDiv.classList.remove('visible');
+                resultsDiv.innerHTML = '';
+                return;
+            }
+
+            const matches = [];
+
+            for (const [categoryName, contestants] of Object.entries(allData)) {
+                for (const c of contestants) {
+                    if (c.name.trim().startsWith(query)) {
+                        matches.push({
+                            name: c.name.trim(),
+                            degree: c.degree,
+                            position: c.position.trim(),
+                            category: categoryName
+                        });
+                    }
+                }
+            }
+
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="search-no-results">
+                        <span class="no-result-icon">🔍</span>
+                        لا توجد نتائج لـ "${query}"
+                    </div>
+                `;
+                resultsDiv.classList.add('visible');
+                return;
+            }
+
+            let html = `<div class="search-results-count">تم العثور على ${matches.length} نتيجة</div>`;
+
+            matches.forEach(m => {
+                const rankNum = getRankNumber(m.position);
+                let icon = '📋';
+                if (rankNum === 1) icon = '🏆';
+                else if (rankNum === 2) icon = '🥈';
+                else if (rankNum === 3) icon = '🥉';
+                else if (isGrade(m.position)) icon = '⭐';
+
+                html += `
+                    <div class="search-result-card">
+                        <div class="result-rank-icon">${icon}</div>
+                        <div class="search-result-info">
+                            <div class="search-result-name">${m.name}</div>
+                            <div class="search-result-category">${m.category}</div>
+                            <div class="search-result-details">المركز <span>${m.position}</span></div>
+                        </div>
+                        <div class="search-result-degree">${m.degree}</div>
+                    </div>
+                `;
+            });
+
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('visible');
+        }
+
         // Initialize
-        document.addEventListener('DOMContentLoaded', loadResults);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadResults();
+            setupSearch();
+        });
     </script>
 </body>
 
